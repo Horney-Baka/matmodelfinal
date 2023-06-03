@@ -13,12 +13,17 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-            /* PI pI = new PI();
-             PI.pi();
-             Monte monte = new Monte();
-             monte.Montecarlo0();*/
-            CodPurf codPurf = new CodPurf();
-            codPurf.reshenie();
+            /*PI pI = new PI();
+            PI.pi();*/
+            Monte monte = new Monte();
+            monte.Montecarlo0();
+            monte.Montecarlo1();
+            monte.Montecarlo2();
+            monte.Montecarlo3();
+            monte.Montecarlo4();
+            monte.Montecarlo5();
+            /*CodPurf codPurf = new CodPurf();
+            codPurf.reshenie();*/
 
         }
     }
@@ -51,7 +56,7 @@ namespace ConsoleApp6
     {
         public void Montecarlo0()
         {
-            double n = 100000;
+            double n = 1000;
             double k = 0.0;
             double s;
             double a = 5.0;
@@ -71,32 +76,114 @@ namespace ConsoleApp6
             }
             s = a * b * k / n;
             Console.WriteLine(s);
-            Console.ReadKey();
+            
         }
         public void Montecarlo1()
         {
-            double n = 100000;
-            double k = 0.0;
-            double s;
-            double a = 5.0;
-            double b = 8.5;
-            double x;
-            double y;
-            Random random = new Random();
 
-            for (int i = 0; i <= n; i++)
+            double n = 1000;
+            Random rnd = new Random();
+            double k = 0;
+            for (int i = 0; i < n; i++)
             {
-                x = random.NextDouble() * b;
-                y = random.NextDouble() * a;
-                if (Math.Sin(x) < y && x * (10 - x) / 5 > y)
+                double x = rnd.NextDouble() * (15 + 5) - 5;
+                double y = rnd.NextDouble() * (1 + 1) - 1;
+                if (y <= Math.Sin(x))
                 {
                     k++;
                 }
             }
-            s = a * b * k / n;
-            Console.WriteLine(s);
-            Console.ReadKey();
+            double S = (k / n) * 20 * 2;
+            Console.WriteLine(S);
         }
+        public void Montecarlo2()
+        {
+            double n = 1000;
+            Random rnd = new Random();
+            double k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                double x = rnd.NextDouble() * (0 + 7) - 7; 
+                double y = rnd.NextDouble() * (0 - 8) + 8; 
+                if (y <= ((x * (8 - x)) / 2) && y >= (x / 2))
+                {
+                    k++;
+                }
+            }
+            double S = (k / n) * 7 * 8;
+            Console.WriteLine( S);
+        }
+        public void Montecarlo3()
+        {
+            double n = 1000;
+            Random rnd = new Random();
+            double k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                double x = rnd.NextDouble() * (0 - 12) + 12; 
+                double y = rnd.NextDouble() * (0 - 6) + 6; 
+                if (y <= 6 && y >= Math.Pow((x - 6), 2) / 6)
+                {
+                    k++;
+                }
+            }
+            double S = (k / n) * 12 * 6;
+            Console.WriteLine(S);
+        }
+        public void Montecarlo4()
+        {
+            double n = 1000;
+            Random rnd = new Random();
+            double k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                double x = rnd.NextDouble() * (0 - 2.5) + ; 
+                double y = rnd.NextDouble() * (0 - 4) + 4; 
+                if (y <= ((x * (12 - x)) / 9) && y >= x / 5)
+                {
+                    k++;
+                }
+            }
+            double S = (k / n) * 2.5 * 4;
+            Console.WriteLine( S);
+        }
+        public void Montecarlo5()
+        {
+            double n = 1000;
+            Random rnd = new Random();
+            double k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                double x = rnd.NextDouble() * (0 - 8) + 8; 
+                double y = rnd.NextDouble() * (0 - 5) + 5; 
+                if (y <= ((x * (8 - x)) / 4) && y >= (8 - x) / x)
+                {
+                    k++;
+                }
+            }
+            double S = (k / n) * 8 * 5;
+            Console.WriteLine(S);
+        }
+        public void Montecarlo6()
+        {
+            double n = 1000;
+            Random rnd = new Random();
+            double k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                double x = rnd.NextDouble() * (0 - 3) + 3; 
+                double y = rnd.NextDouble();
+                if (y <= Math.Sin(x) && y >= Math.Pow((x - 2), 2) / 2)
+                {
+                    k++;
+                }
+            }
+            double S = (k / n) * 3 * 1;
+            Console.WriteLine( S);
+        }
+
+
+
 
     }
 
